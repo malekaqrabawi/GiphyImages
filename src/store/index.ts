@@ -1,0 +1,46 @@
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import mmkvStorage from './mmkvStorage';
+import authReducer from './slices/authSlice';
+import giphyReducer from './slices/giphySlice';
+import favoritesReducer from './slices/favoritesSlice';
+import searchReducer from './slices/searchSlice';
+
+const persistConfig = {
+  key: 'root',
+  storage: mmkvStorage,
+  whitelist: ['auth', 'favorites'],
+};
+
+const rootReducer = combineReducers({
+  auth: authReducer,
+  giphy: giphyReducer,
+  favorites: favoritesReducer,
+  search: searchReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
+
+export const persistor = persistStore(store);
+
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppDispatch = typeof store.dispatch;
