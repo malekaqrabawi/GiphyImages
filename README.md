@@ -49,3 +49,29 @@ npm run android
 - **Animations:** React Native Reanimated (configured with Shared Element Transitions)
 - **Icons:** React Native Vector Icons
 
+---
+
+## 📋 Assignment Completion Checklist
+
+This project was built to fulfill the Giphy Images App assignment requirements.
+
+### Core Requirements MVP
+- [x] **Sign In Screen**: Functional Sign-In page with Email and Password inputs.
+- [x] **Homepage**: Displays a list of Giphy items fetched from the Giphy API.
+  - [x] Displays **Title, Image, and Description** for each item.
+  - [x] Includes an action to add items to **Favorites**.
+  - [x] Implements correct **Pagination** (20 items per page).
+- [x] **Favorites Screen**: Dedicated screen to manage saved items.
+  - [x] Add/Remove items from favorites.
+  - [x] "Remove All" button to clear the list.
+  - [x] Displays all favorite items and the **total count** of favorites.
+- [x] **Item Details Screen**: Detailed view for individual GIFs.
+  - [x] Displays: Title, Image, Description, Type, Slug, URL.
+  - [x] Actions to Add/Remove from favorites.
+- [x] **Architecture Experience**: Implemented **top and bottom tab navigation** to mimic Instagram's navigation experience.
+- [x] **Required Techologies**: Built with **React Native CLI** and **Redux Toolkit/React-Redux** for state management.
+
+### ⭐ Plus Points (Achieved)
+- [x] **GitHub Upload**: The project is uploaded and available on GitHub.
+- [x] **Search Screen**: Dedicated search interface utilizing the Giphy **Search API**.
+- [x] **Shared Element Transition**: Configured beautiful shared element transitions using `react-native-reanimated` when opening and closing the item details screen.
